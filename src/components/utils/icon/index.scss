@@ -1,4 +1,5 @@
 @import 'src/styles/icons';
+@import 'src/styles/sizes';
 
 [class^="icon-"],
 [class*=" icon-"] {
@@ -95,4 +96,15 @@
 
 .icon-light:before {
   content: "\e9A1";
+}
+
+// On phones the section button opens and closes the chat
+@media (max-width: #{$media-min-width - 1}) {
+  .icon-left:before {
+    content: "\e910";
+  }
+
+  .icon-right:before {
+    content: "\e912";
+  }
 }
