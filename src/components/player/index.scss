@@ -6,35 +6,40 @@ $player-wrapper-padding: $control-bar-height;
   box-sizing: border-box;
   display: grid;
   grid-template-areas:
-    "top-bar content"
-    "media content"
-    "application content"
-    "bottom-bar content";
-  grid-template-columns: 100% auto;
-  grid-template-rows: $top-bar-height auto 50% $bottom-bar-height;
+    "top-bar application"
+    "content application"
+    "media application"
+    "bottom-bar application";
+  grid-template-columns: 100% 0;
+  grid-template-rows: $top-bar-height minmax(0, 1fr) minmax(0, 1fr) $bottom-bar-height;
   height: 100%;
+  overflow: hidden;
   padding: 0 0 $player-wrapper-padding 0;
   width: 100%;
 }
 
 .single-content {
   grid-template-areas:
-    "top-bar content"
-    "application content"
-    "application content"
-    "bottom-bar content";
+    "top-bar media"
+    "content media"
+    "application media"
+    "bottom-bar media";
 }
 
 .hidden-section {
   grid-template-areas:
-    "media top-bar"
-    "media content"
-    "application content"
-    "application bottom-bar";
-  grid-template-columns: 0% auto;
+    "top-bar media"
+    "content media"
+    "application media"
+    "bottom-bar media";
 }
 
 .fullscreen-content {
+  grid-template-areas:
+    "top-bar content"
+    "media content"
+    "application content"
+    "bottom-bar content";
   grid-template-columns: 0% auto;
   grid-template-rows: 0% auto auto 0%;
 }
@@ -49,6 +54,7 @@ $player-wrapper-padding: $control-bar-height;
       "application bottom-bar";
     grid-template-columns: $section-width auto;
     grid-template-rows: $top-bar-height $media-fit-height auto auto $bottom-bar-height;
+    overflow: visible;
   }
 
   .single-content {
