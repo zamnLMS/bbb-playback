@@ -12,6 +12,7 @@ const propTypes = {
   interactive: PropTypes.bool,
   item: PropTypes.object,
   setRef: PropTypes.func,
+  windowed: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -20,6 +21,7 @@ const defaultProps = {
   interactive: false,
   item: {},
   setRef: () => {},
+  windowed: false,
 };
 
 const Item = ({
@@ -28,6 +30,7 @@ const Item = ({
   interactive,
   item,
   setRef,
+  windowed,
 }) => {
   if (!interactive) {
 
@@ -38,8 +41,11 @@ const Item = ({
       >
         <Thumbnail
           alt={item.alt}
+          height={item.height}
           index={index}
           src={item.src}
+          width={item.width}
+          windowed={windowed}
         />
       </div>
     );
@@ -59,8 +65,11 @@ const Item = ({
     >
       <Thumbnail
         alt={item.alt}
+        height={item.height}
         index={index}
         src={item.src}
+        width={item.width}
+        windowed={windowed}
       />
     </div>
   );

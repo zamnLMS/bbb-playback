@@ -97,6 +97,8 @@ const Thumbnails = ({
               ...item,
               src: Thumbnail?.src ?? '',
               alt: Thumbnail?.alt ?? '',
+              height: Thumbnail?.height,
+              width: Thumbnail?.width,
             };
           }
         } else if (
@@ -126,6 +128,7 @@ const Thumbnails = ({
   }, []);
 
   const currentIndex = useCurrentIndex(items);
+  const windowed = items.length >= config.window.min;
 
   return (
     <div
@@ -147,6 +150,7 @@ const Thumbnails = ({
               interactive={interactive}
               item={item}
               setRef={setRef}
+              windowed={windowed}
             />
           );
         }

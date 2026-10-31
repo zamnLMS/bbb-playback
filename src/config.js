@@ -75,6 +75,10 @@ const styles = {
 const thumbnails = {
   align: 'center',
   scroll: true,
+  window: {
+    margin: 300,
+    min: 100,
+  },
 };
 
 export {

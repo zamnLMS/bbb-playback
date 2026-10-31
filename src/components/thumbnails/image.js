@@ -9,16 +9,19 @@ import './index.scss';
 const propTypes = {
   alt: PropTypes.string,
   src: PropTypes.string,
+  style: PropTypes.object,
 };
 
 const defaultProps = {
   alt: '',
   src: '',
+  style: undefined,
 };
 
 const Image = ({
   alt,
   src,
+  style,
 }) => {
   const screenshare = src === ID.SCREENSHARE;
 
@@ -37,6 +40,7 @@ const Image = ({
       alt={alt}
       className={cx('thumbnail-image', { logo })}
       src={buildFileURL(src)}
+      style={style}
     />
   );
 };
